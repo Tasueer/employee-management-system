@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %}Employee Salary List{% endblock %}
+
+{% block content %}
+  <h2>Employee Salary List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee</th>
+        <th>Salary</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for salary in salaries %}
+        <tr>
+          <td>{{ salary.employee.name }}</td>
+          <td>{{ salary.salary }}</td>
+          <td>{{ salary.start_date }}</td>
+          <td>{{ salary.end_date }}</td>
+          <td>
+            <a href= '/edit_salary/{{salary.id}}'>Edit</a>
+            <a href='/delete_salary/{{salary.id}}'>Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href='/add_salary'>Add Salary</a>
+{% endblock %}

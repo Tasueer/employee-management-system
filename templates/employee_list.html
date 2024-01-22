@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+
+{% block title %}Employee List{% endblock %}
+
+{% block content %}
+  <h2>Employee List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Id</th>
+        <th>Designation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for employee in employees %}
+        <tr>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.designation }}</td>
+          <td>
+            <a href= '/edit_employee/{{employee.id}}'>Edit</a>
+            <a href='/delete_employee/{{employee.id}}'>Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/add_employee">Add Employee</a>
+{% endblock %}
+

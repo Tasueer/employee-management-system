@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block title %}Add Salary{% endblock %}
+
+{% block content %}
+  <h2>Add Salary</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href='/salary_list'>Back to Salary List</a>
+{% endblock %}

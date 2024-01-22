@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block title %}Add Department{% endblock %}
+
+{% block content %}
+  <h2>Add Department</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href='/department_list'>Back to Department List</a>
+{% endblock %}

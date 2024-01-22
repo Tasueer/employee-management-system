@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block title %}Department List{% endblock %}
+
+{% block content %}
+  <h2>Department List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Floor</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for department in departments %}
+        <tr>
+          <td>{{ department.name }}</td>
+          <td>{{ department.floor }}</td>
+          <td>
+            <a href='/edit_department/{{department.id }}'>Edit</a>
+            <a href='/delete_department/{{department.id}}'>Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/add_department">Add Department</a>
+{% endblock %}
